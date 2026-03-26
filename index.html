@@ -42,6 +42,12 @@ tailwind.config = {
 .hero-gradient { background: linear-gradient(135deg, #001838 0%, #002c5e 100%); }
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+/* Mobile menu */
+#mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+#mobile-menu.open { max-height: 400px; }
+/* Scroll animations */
+.fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
 </style>
 </head>
 <body class="bg-surface font-sans text-on-surface antialiased">
@@ -53,33 +59,44 @@ tailwind.config = {
   <div class="flex justify-between items-center px-6 lg:px-8 py-3 lg:py-0 lg:h-20 max-w-screen-2xl mx-auto">
     <!-- Logo -->
     <div class="flex items-center gap-4 lg:gap-8">
-      <button class="lg:hidden text-white hover:bg-white/10 transition-colors p-1 rounded-md">
-        <span class="material-symbols-outlined">menu</span>
+      <button id="menu-toggle" class="lg:hidden text-white hover:bg-white/10 transition-colors p-1 rounded-md" aria-label="Toggle menu">
+        <span class="material-symbols-outlined" id="menu-icon">menu</span>
       </button>
-      <span class="text-xl lg:text-2xl font-black text-white lg:text-navy tracking-tighter lg:tracking-tighter">Fishgoo</span>
+      <a href="https://www.fishgoo.com" class="text-xl lg:text-2xl font-black text-white lg:text-navy tracking-tighter lg:tracking-tighter">Fishgoo</a>
       <!-- Desktop Nav -->
       <nav class="hidden lg:flex gap-6 items-center">
-        <a class="text-gray-600 font-medium hover:text-navy transition-colors" href="#">Services</a>
-        <a class="text-gray-600 font-medium hover:text-navy transition-colors" href="#">Shipping</a>
-        <a class="text-gray-600 font-medium hover:text-navy transition-colors" href="#">Insights</a>
-        <a class="text-navy font-bold border-b-2 border-highlight-orange" href="#">Blog</a>
+        <a class="text-gray-600 font-medium hover:text-navy transition-colors" href="https://www.fishgoo.com/services/">Services</a>
+        <a class="text-gray-600 font-medium hover:text-navy transition-colors" href="https://www.fishgoo.com/shipping-rates/">Shipping</a>
+        <a class="text-gray-600 font-medium hover:text-navy transition-colors" href="#insights">Insights</a>
+        <a class="text-navy font-bold border-b-2 border-highlight-orange" href="https://blog.fishgoo.com">Blog</a>
       </nav>
     </div>
     <!-- Right Actions -->
     <div class="flex items-center gap-4">
       <!-- Mobile: image search -->
-      <button class="lg:hidden text-white hover:bg-white/10 transition-colors p-1 rounded-md">
+      <button id="mobile-img-search" class="lg:hidden text-white hover:bg-white/10 transition-colors p-1 rounded-md" aria-label="Image search">
         <span class="material-symbols-outlined">image_search</span>
       </button>
+      <input type="file" id="img-upload" accept="image/*" class="hidden"/>
       <!-- Desktop actions -->
       <div class="hidden lg:flex items-center gap-4 text-gray-600">
-        <span class="material-symbols-outlined cursor-pointer hover:text-navy">notifications</span>
-        <span class="material-symbols-outlined cursor-pointer hover:text-navy">account_circle</span>
+        <a href="https://www.fishgoo.com/my-account/" class="material-symbols-outlined cursor-pointer hover:text-navy">notifications</a>
+        <a href="https://www.fishgoo.com/my-account/" class="material-symbols-outlined cursor-pointer hover:text-navy">account_circle</a>
       </div>
-      <button class="hidden lg:block bg-navy text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:brightness-110 transition-all active:scale-95">
+      <a href="https://www.fishgoo.com/my-account/" class="hidden lg:block bg-navy text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:brightness-110 transition-all active:scale-95">
         Get Started
-      </button>
+      </a>
     </div>
+  </div>
+  <!-- Mobile dropdown menu -->
+  <div id="mobile-menu" class="lg:hidden bg-navy border-t border-white/10">
+    <nav class="flex flex-col px-6 py-4 gap-3">
+      <a class="text-white/80 font-medium py-2 hover:text-white transition-colors border-b border-white/5" href="https://www.fishgoo.com/services/">Services</a>
+      <a class="text-white/80 font-medium py-2 hover:text-white transition-colors border-b border-white/5" href="https://www.fishgoo.com/shipping-rates/">Shipping Rates</a>
+      <a class="text-white/80 font-medium py-2 hover:text-white transition-colors border-b border-white/5" href="https://blog.fishgoo.com">Blog</a>
+      <a class="text-white/80 font-medium py-2 hover:text-white transition-colors border-b border-white/5" href="https://www.fishgoo.com/my-account/">My Account</a>
+      <a class="bg-highlight-orange text-white font-bold py-3 rounded-lg text-center mt-2 active:scale-95 transition-transform" href="https://www.fishgoo.com/my-account/">Get Started Free</a>
+    </nav>
   </div>
 </header>
 
@@ -98,18 +115,18 @@ tailwind.config = {
       </p>
       <!-- Search Bar -->
       <div class="w-full max-w-md lg:max-w-xl">
-        <div class="bg-white rounded-lg lg:rounded-xl shadow-2xl flex items-center p-0.5 lg:p-0 focus-within:ring-2 focus-within:ring-highlight-orange/50 transition-shadow">
+        <form id="search-form" action="https://www.fishgoo.com/" method="get" class="bg-white rounded-lg lg:rounded-xl shadow-2xl flex items-center p-0.5 lg:p-0 focus-within:ring-2 focus-within:ring-highlight-orange/50 transition-shadow">
           <div class="pl-3 lg:pl-5 pr-2 text-navy">
             <span class="material-symbols-outlined">search</span>
           </div>
-          <input class="flex-grow bg-transparent border-none focus:ring-0 text-sm lg:text-lg py-2.5 lg:py-5 font-medium placeholder:text-outline text-on-surface" placeholder="Paste product link or search..." type="text"/>
+          <input id="search-input" name="s" class="flex-grow bg-transparent border-none focus:ring-0 text-sm lg:text-lg py-2.5 lg:py-5 font-medium placeholder:text-outline text-on-surface" placeholder="Paste product link or search..." type="text"/>
           <!-- Mobile: camera button -->
-          <button class="lg:hidden p-2.5 text-highlight-orange hover:bg-surface-container transition-colors rounded-md">
+          <button type="button" id="hero-img-search" class="lg:hidden p-2.5 text-highlight-orange hover:bg-surface-container transition-colors rounded-md">
             <span class="material-symbols-outlined">photo_camera</span>
           </button>
           <!-- Desktop: search button -->
-          <button class="hidden lg:block bg-highlight-orange text-white px-8 py-3 m-1.5 rounded-lg font-bold hover:brightness-110 transition-all active:scale-95">Search</button>
-        </div>
+          <button type="submit" class="hidden lg:block bg-highlight-orange text-white px-8 py-3 m-1.5 rounded-lg font-bold hover:brightness-110 transition-all active:scale-95">Search</button>
+        </form>
       </div>
       <!-- Mobile: subtitle -->
       <p class="lg:hidden mt-4 text-blue-200 text-[10px] font-bold tracking-widest uppercase">Direct access to Taobao, Tmall, and 1688</p>
@@ -213,7 +230,7 @@ tailwind.config = {
   </div>
   <!-- Desktop: 3-step process -->
   <div class="hidden lg:block">
-    <div class="text-center mb-20">
+    <div class="text-center mb-20 fade-up">
       <span class="text-highlight-orange font-bold tracking-[0.2em] uppercase text-sm block mb-4">The Workflow</span>
       <h2 class="text-5xl font-black text-navy tracking-tighter">Sourcing made simple</h2>
     </div>
@@ -251,7 +268,7 @@ tailwind.config = {
         <span class="text-highlight-orange font-bold tracking-[0.2em] uppercase text-sm block mb-4">Trending Now</span>
         <h2 class="text-5xl font-black text-navy tracking-tighter">Popular Sourcing Categories</h2>
       </div>
-      <button class="text-navy font-bold flex items-center gap-2 hover:gap-4 transition-all active:scale-95">View All <span class="material-symbols-outlined">arrow_forward</span></button>
+      <a href="https://www.fishgoo.com/services/" class="text-navy font-bold flex items-center gap-2 hover:gap-4 transition-all active:scale-95">View All <span class="material-symbols-outlined">arrow_forward</span></a>
     </div>
     <div class="grid grid-cols-4 gap-8">
       <div class="group cursor-pointer">
@@ -288,7 +305,7 @@ tailwind.config = {
     <div class="md:col-span-1 flex flex-col justify-center">
       <h2 class="text-5xl font-black text-navy tracking-tighter mb-6 leading-tight">Elite features for global merchants</h2>
       <p class="text-on-surface-variant text-lg leading-relaxed mb-8">We provide more than just a shipping address. We offer a full-service logistics infrastructure designed to scale your business.</p>
-      <button class="bg-navy text-white px-8 py-4 rounded-lg font-bold w-fit hover:bg-navy-dark transition-colors active:scale-95">Learn More</button>
+      <a href="https://www.fishgoo.com/services/" class="bg-navy text-white px-8 py-4 rounded-lg font-bold w-fit hover:bg-navy-dark transition-colors active:scale-95 inline-block">Learn More</a>
     </div>
     <div class="md:col-span-2 grid grid-cols-2 gap-6">
       <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-xl transition-shadow">
@@ -328,7 +345,7 @@ tailwind.config = {
 <!-- ===== BLOG / INSIGHTS ===== -->
 <!-- Mobile: horizontal snap scroll cards -->
 <!-- Desktop: 3-col editorial grid -->
-<section class="bg-surface-container lg:bg-surface py-8 lg:py-32 lg:border-t lg:border-gray-100">
+<section id="insights" class="bg-surface-container lg:bg-surface py-8 lg:py-32 lg:border-t lg:border-gray-100">
   <div class="max-w-screen-2xl mx-auto">
     <!-- Header -->
     <div class="flex justify-between items-center lg:items-end mb-4 lg:mb-16 px-6 lg:px-8">
@@ -336,7 +353,7 @@ tailwind.config = {
         <span class="hidden lg:block text-highlight-orange font-bold tracking-[0.2em] uppercase text-sm mb-4">Fishgoo Editorial</span>
         <h2 class="text-lg lg:text-5xl font-extrabold lg:font-black text-navy tracking-tight lg:tracking-tighter">Market Insights</h2>
       </div>
-      <a class="text-highlight-orange text-[11px] lg:text-base font-bold uppercase tracking-wider flex items-center gap-1 group lg:bg-navy lg:text-white lg:px-8 lg:py-3 lg:rounded-lg lg:tracking-normal lg:normal-case" href="#">
+      <a class="text-highlight-orange text-[11px] lg:text-base font-bold uppercase tracking-wider flex items-center gap-1 group lg:bg-navy lg:text-white lg:px-8 lg:py-3 lg:rounded-lg lg:tracking-normal lg:normal-case" href="https://blog.fishgoo.com" target="_blank" rel="noopener">
         <span class="lg:hidden">View All</span>
         <span class="hidden lg:inline">Visit Newsroom</span>
         <span class="material-symbols-outlined text-sm lg:hidden group-hover:translate-x-1 transition-transform">arrow_forward</span>
@@ -392,7 +409,7 @@ tailwind.config = {
         </div>
         <h3 class="text-2xl font-black text-navy leading-tight mb-4 group-hover:text-highlight-orange transition-colors">Navigating Peak Season: How to Avoid Port Congestion</h3>
         <p class="text-on-surface-variant mb-6 line-clamp-2">Master the art of holiday shipping with our comprehensive guide to early booking and alternative routes.</p>
-        <a class="inline-flex items-center gap-2 font-bold text-navy group-hover:gap-4 transition-all" href="#">Read More <span class="material-symbols-outlined text-sm">east</span></a>
+        <a class="inline-flex items-center gap-2 font-bold text-navy group-hover:gap-4 transition-all" href="https://blog.fishgoo.com" target="_blank" rel="noopener">Read More <span class="material-symbols-outlined text-sm">east</span></a>
       </article>
       <article class="group">
         <div class="aspect-[16/10] rounded-xl overflow-hidden mb-8 relative">
@@ -403,7 +420,7 @@ tailwind.config = {
         </div>
         <h3 class="text-2xl font-black text-navy leading-tight mb-4 group-hover:text-highlight-orange transition-colors">The Art of Consolidation: Saving 40% on Shipping</h3>
         <p class="text-on-surface-variant mb-6 line-clamp-2">Learn how our expert repackaging service can drastically reduce the volume of your shipments.</p>
-        <a class="inline-flex items-center gap-2 font-bold text-navy group-hover:gap-4 transition-all" href="#">Read More <span class="material-symbols-outlined text-sm">east</span></a>
+        <a class="inline-flex items-center gap-2 font-bold text-navy group-hover:gap-4 transition-all" href="https://blog.fishgoo.com" target="_blank" rel="noopener">Read More <span class="material-symbols-outlined text-sm">east</span></a>
       </article>
       <article class="group">
         <div class="aspect-[16/10] rounded-xl overflow-hidden mb-8 relative">
@@ -414,7 +431,7 @@ tailwind.config = {
         </div>
         <h3 class="text-2xl font-black text-navy leading-tight mb-4 group-hover:text-highlight-orange transition-colors">Direct-to-Consumer Trends from China in 2024</h3>
         <p class="text-on-surface-variant mb-6 line-clamp-2">A deep dive into the emerging categories and brands dominating the global e-commerce landscape.</p>
-        <a class="inline-flex items-center gap-2 font-bold text-navy group-hover:gap-4 transition-all" href="#">Read More <span class="material-symbols-outlined text-sm">east</span></a>
+        <a class="inline-flex items-center gap-2 font-bold text-navy group-hover:gap-4 transition-all" href="https://blog.fishgoo.com" target="_blank" rel="noopener">Read More <span class="material-symbols-outlined text-sm">east</span></a>
       </article>
     </div>
   </div>
@@ -425,7 +442,7 @@ tailwind.config = {
 <!-- Desktop: 3-col cards with border accent -->
 <section class="py-10 lg:py-32 px-6 lg:px-8 bg-surface lg:bg-surface-container-low">
   <div class="max-w-screen-2xl mx-auto">
-    <div class="text-center mb-8 lg:mb-20">
+    <div class="text-center mb-8 lg:mb-20 fade-up">
       <span class="text-[10px] lg:text-sm font-black lg:font-bold text-navy lg:text-highlight-orange uppercase tracking-[0.2em] block lg:mb-4">
         Global Success Stories
       </span>
@@ -536,10 +553,10 @@ tailwind.config = {
 <!-- ===== FINAL CTA ===== -->
 <section class="py-20 lg:py-32 bg-navy relative overflow-hidden">
   <div class="max-w-screen-2xl mx-auto px-6 lg:px-8 relative z-10 text-center">
-    <h2 class="text-4xl lg:text-7xl xl:text-8xl font-black text-white tracking-tighter mb-8 lg:mb-10 leading-tight lg:leading-none">Ready to start <br/> your curation?</h2>
+    <h2 class="text-4xl lg:text-7xl xl:text-8xl font-black text-white tracking-tighter mb-8 lg:mb-10 leading-tight lg:leading-none fade-up">Ready to start <br/> your curation?</h2>
     <div class="flex flex-col sm:flex-row gap-4 lg:gap-6 justify-center">
-      <button class="bg-highlight-orange text-white px-8 lg:px-12 py-4 lg:py-5 rounded-xl text-lg lg:text-xl font-black hover:brightness-110 transition-all shadow-xl active:scale-95">Get Started Now</button>
-      <button class="bg-white/10 text-white border border-white/20 px-8 lg:px-12 py-4 lg:py-5 rounded-xl text-lg lg:text-xl font-black hover:bg-white/20 transition-all backdrop-blur-md active:scale-95">Contact Sales</button>
+      <a href="https://www.fishgoo.com/my-account/" class="bg-highlight-orange text-white px-8 lg:px-12 py-4 lg:py-5 rounded-xl text-lg lg:text-xl font-black hover:brightness-110 transition-all shadow-xl active:scale-95 inline-block">Get Started Now</a>
+      <a href="https://www.fishgoo.com/contact/" class="bg-white/10 text-white border border-white/20 px-8 lg:px-12 py-4 lg:py-5 rounded-xl text-lg lg:text-xl font-black hover:bg-white/20 transition-all backdrop-blur-md active:scale-95 inline-block">Contact Sales</a>
     </div>
   </div>
   <div class="absolute inset-0 opacity-10 pointer-events-none">
@@ -557,12 +574,12 @@ tailwind.config = {
     <div class="w-full flex flex-col lg:flex-row justify-between items-center gap-6 lg:gap-8">
       <span class="text-xl font-bold text-white">Fishgoo</span>
       <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 lg:gap-8">
-        <a class="text-gray-400 text-xs lg:text-sm uppercase tracking-widest hover:text-highlight-orange transition-colors" href="#">Terms</a>
-        <a class="text-gray-400 text-xs lg:text-sm uppercase tracking-widest hover:text-highlight-orange transition-colors" href="#">Privacy</a>
-        <a class="text-gray-400 text-xs lg:text-sm uppercase tracking-widest hover:text-highlight-orange transition-colors" href="#">Shipping Guide</a>
-        <a class="text-gray-400 text-xs lg:text-sm uppercase tracking-widest hover:text-highlight-orange transition-colors" href="#">Contact</a>
-        <a class="hidden lg:inline text-gray-400 text-sm uppercase tracking-widest hover:text-highlight-orange transition-colors" href="#">Network</a>
-        <a class="hidden lg:inline text-gray-400 text-sm uppercase tracking-widest hover:text-highlight-orange transition-colors" href="#">Press</a>
+        <a class="text-gray-400 text-xs lg:text-sm uppercase tracking-widest hover:text-highlight-orange transition-colors" href="https://www.fishgoo.com/terms-conditions/">Terms</a>
+        <a class="text-gray-400 text-xs lg:text-sm uppercase tracking-widest hover:text-highlight-orange transition-colors" href="https://www.fishgoo.com/privacy-policy/">Privacy</a>
+        <a class="text-gray-400 text-xs lg:text-sm uppercase tracking-widest hover:text-highlight-orange transition-colors" href="https://www.fishgoo.com/shipping-rates/">Shipping Guide</a>
+        <a class="text-gray-400 text-xs lg:text-sm uppercase tracking-widest hover:text-highlight-orange transition-colors" href="https://www.fishgoo.com/contact/">Contact</a>
+        <a class="hidden lg:inline text-gray-400 text-sm uppercase tracking-widest hover:text-highlight-orange transition-colors" href="https://www.fishgoo.com/services/">Network</a>
+        <a class="hidden lg:inline text-gray-400 text-sm uppercase tracking-widest hover:text-highlight-orange transition-colors" href="https://blog.fishgoo.com">Press</a>
       </nav>
     </div>
     <div class="text-gray-500 text-xs lg:text-sm uppercase tracking-[0.2em] border-t border-white/5 pt-6 lg:pt-8 w-full text-center">
@@ -572,34 +589,112 @@ tailwind.config = {
 </footer>
 
 <!-- ===== MOBILE ONLY: FAB + Bottom Nav ===== -->
-<!-- Floating Action Button -->
-<button class="lg:hidden fixed bottom-24 right-6 w-12 h-12 bg-highlight-orange text-white rounded-full shadow-2xl flex items-center justify-center active:scale-90 transition-transform z-40">
+<!-- Floating Action Button — opens Intercom or fallback to contact page -->
+<a id="fab-chat" href="https://www.fishgoo.com/contact/" class="lg:hidden fixed bottom-24 right-6 w-12 h-12 bg-highlight-orange text-white rounded-full shadow-2xl flex items-center justify-center active:scale-90 transition-transform z-40">
   <span class="material-symbols-outlined text-2xl">support_agent</span>
-</button>
+</a>
 <!-- Bottom Navigation Bar -->
 <nav class="lg:hidden fixed bottom-0 left-0 right-0 bg-white h-16 flex justify-around items-center px-2 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] z-[100]">
-  <a class="flex flex-col items-center gap-0.5 text-on-surface-variant" href="#">
+  <a class="flex flex-col items-center gap-0.5 text-on-surface-variant" href="https://www.fishgoo.com/my-account/">
     <span class="material-symbols-outlined text-xl">shopping_bag</span>
     <span class="text-[9px] font-bold uppercase tracking-tighter">Orders</span>
   </a>
-  <a class="flex flex-col items-center gap-0.5 text-on-surface-variant" href="#">
+  <a class="flex flex-col items-center gap-0.5 text-on-surface-variant" href="https://www.fishgoo.com/my-account/">
     <span class="material-symbols-outlined text-xl">inventory_2</span>
     <span class="text-[9px] font-bold uppercase tracking-tighter">Warehouse</span>
   </a>
   <div class="relative -top-5">
-    <button class="w-12 h-12 bg-navy text-white rounded-full shadow-lg flex items-center justify-center active:scale-95 duration-200">
+    <a href="https://www.fishgoo.com" class="w-12 h-12 bg-navy text-white rounded-full shadow-lg flex items-center justify-center active:scale-95 duration-200">
       <span class="material-symbols-outlined text-2xl">add</span>
-    </button>
+    </a>
   </div>
-  <a class="flex flex-col items-center gap-0.5 text-on-surface-variant" href="#">
+  <a class="flex flex-col items-center gap-0.5 text-on-surface-variant" href="https://www.fishgoo.com/my-account/">
     <span class="material-symbols-outlined text-xl">local_shipping</span>
     <span class="text-[9px] font-bold uppercase tracking-tighter">Parcel</span>
   </a>
-  <a class="flex flex-col items-center gap-0.5 text-on-surface-variant" href="#">
+  <a class="flex flex-col items-center gap-0.5 text-on-surface-variant" href="https://www.fishgoo.com/my-account/">
     <span class="material-symbols-outlined text-xl">account_circle</span>
     <span class="text-[9px] font-bold uppercase tracking-tighter">Profile</span>
   </a>
 </nav>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // === Mobile hamburger menu toggle ===
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', function() {
+      mobileMenu.classList.toggle('open');
+      menuIcon.textContent = mobileMenu.classList.contains('open') ? 'close' : 'menu';
+    });
+  }
+
+  // === Image search — trigger file upload ===
+  const imgUpload = document.getElementById('img-upload');
+  const mobileImgSearch = document.getElementById('mobile-img-search');
+  const heroImgSearch = document.getElementById('hero-img-search');
+  function triggerImgUpload() { if (imgUpload) imgUpload.click(); }
+  if (mobileImgSearch) mobileImgSearch.addEventListener('click', triggerImgUpload);
+  if (heroImgSearch) heroImgSearch.addEventListener('click', triggerImgUpload);
+  if (imgUpload) {
+    imgUpload.addEventListener('change', function() {
+      if (this.files && this.files[0]) {
+        // Redirect to fishgoo with image search intent
+        window.location.href = 'https://www.fishgoo.com/?image_search=1';
+      }
+    });
+  }
+
+  // === Search form — handle enter key and empty submit ===
+  const searchForm = document.getElementById('search-form');
+  const searchInput = document.getElementById('search-input');
+  if (searchForm) {
+    searchForm.addEventListener('submit', function(e) {
+      if (!searchInput.value.trim()) {
+        e.preventDefault();
+        searchInput.focus();
+        searchInput.classList.add('ring-2', 'ring-red-400');
+        setTimeout(function() { searchInput.classList.remove('ring-2', 'ring-red-400'); }, 1500);
+      }
+    });
+  }
+
+  // === Scroll-triggered fade-up animations ===
+  const fadeEls = document.querySelectorAll('.fade-up');
+  if (fadeEls.length > 0) {
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    fadeEls.forEach(function(el) { observer.observe(el); });
+  }
+
+  // === Intercom integration (if available) ===
+  const fabChat = document.getElementById('fab-chat');
+  if (fabChat && typeof window.Intercom === 'function') {
+    fabChat.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.Intercom('show');
+    });
+  }
+
+  // === Smooth scroll for anchor links ===
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+});
+</script>
 </body>
 </html>
