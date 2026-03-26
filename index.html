@@ -621,12 +621,21 @@ tailwind.config = {
 </section>
 
 <!-- ===== FINAL CTA ===== -->
-<section class="py-20 lg:py-32 bg-navy relative overflow-hidden">
-  <div class="max-w-screen-2xl mx-auto px-6 lg:px-8 relative z-10 text-center">
-    <h2 class="text-4xl lg:text-7xl xl:text-8xl font-black text-white tracking-tighter mb-8 lg:mb-10 leading-tight lg:leading-none fade-up">Ready to start <br/> your curation?</h2>
-    <div class="flex flex-col sm:flex-row gap-4 lg:gap-6 justify-center">
-      <a href="https://www.fishgoo.com/my-account/" class="bg-highlight-orange text-white px-8 lg:px-12 py-4 lg:py-5 rounded-xl text-lg lg:text-xl font-black hover:brightness-110 transition-all shadow-xl active:scale-95 inline-block">Get Started Now</a>
-      <a href="https://www.fishgoo.com/contact/" class="bg-white/10 text-white border border-white/20 px-8 lg:px-12 py-4 lg:py-5 rounded-xl text-lg lg:text-xl font-black hover:bg-white/20 transition-all backdrop-blur-md active:scale-95 inline-block">Contact Sales</a>
+<section class="py-16 lg:py-16 bg-navy relative overflow-hidden">
+  <!-- Mobile: stacked layout -->
+  <div class="lg:hidden max-w-screen-2xl mx-auto px-6 relative z-10 text-center">
+    <h2 class="text-3xl font-black text-white tracking-tighter mb-6 leading-tight fade-up">Ready to start your curation?</h2>
+    <div class="flex flex-col gap-3">
+      <a href="https://www.fishgoo.com/my-account/" class="bg-highlight-orange text-white px-8 py-4 rounded-xl text-lg font-black hover:brightness-110 transition-all shadow-xl active:scale-95 inline-block">Get Started Now</a>
+      <a href="https://www.fishgoo.com/contact/" class="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl text-lg font-black hover:bg-white/20 transition-all backdrop-blur-md active:scale-95 inline-block">Contact Sales</a>
+    </div>
+  </div>
+  <!-- Desktop: single-line layout -->
+  <div class="hidden lg:flex max-w-screen-2xl mx-auto px-8 relative z-10 items-center justify-between">
+    <h2 class="text-5xl xl:text-6xl font-black text-white tracking-tighter leading-none fade-up">Ready to start your curation?</h2>
+    <div class="flex gap-4 shrink-0">
+      <a href="https://www.fishgoo.com/my-account/" class="bg-highlight-orange text-white px-10 py-5 rounded-xl text-xl font-black hover:brightness-110 transition-all shadow-xl active:scale-95 whitespace-nowrap">Get Started Now</a>
+      <a href="https://www.fishgoo.com/contact/" class="bg-white/10 text-white border border-white/20 px-10 py-5 rounded-xl text-xl font-black hover:bg-white/20 transition-all backdrop-blur-md active:scale-95 whitespace-nowrap">Contact Sales</a>
     </div>
   </div>
   <div class="absolute inset-0 opacity-10 pointer-events-none">
