@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fishgoo | Your Trusted China Shopping Agent</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "navy": "#002C5E",
+        "navy-dark": "#001838",
+        "action-blue": "#1F75FE",
+        "highlight-orange": "#FF6B35",
+        "on-surface": "#1b1c1c",
+        "on-surface-variant": "#43474f",
+        "outline": "#747780",
+        "surface": "#fbf9f9",
+        "surface-container": "#efeded",
+        "surface-container-low": "#f5f3f3",
+        "surface-container-lowest": "#ffffff",
+        "surface-container-high": "#e9e8e7",
+      },
+      fontFamily: {
+        sans: ["Inter", "PingFang SC", "system-ui", "sans-serif"],
+      },
+    },
+  },
+}
+</script>
+<style>
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  display: inline-block; line-height: 1; text-transform: none;
+  letter-spacing: normal; word-wrap: normal; white-space: nowrap; direction: ltr;
+}
+.hero-gradient { background: linear-gradient(135deg, #001838 0%, #002c5e 100%); }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+</style>
+</head>
+<body class="bg-surface font-sans text-on-surface antialiased">
+
+<!-- ===== HEADER ===== -->
+<!-- Mobile: navy sticky bar with hamburger -->
+<!-- Desktop: white glassmorphism fixed bar -->
+<header class="sticky lg:fixed top-0 w-full z-50 bg-navy lg:bg-white/80 lg:backdrop-blur-md shadow-sm lg:shadow-sm">
+  <div class="flex justify-between items-center px-6 lg:px-8 py-3 lg:py-0 lg:h-20 max-w-screen-2xl mx-auto">
+    <!-- Logo -->
+    <div class="flex items-center gap-4 lg:gap-8">
+      <button class="lg:hidden text-white hover:bg-white/10 transition-colors p-1 rounded-md">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+      <span class="text-xl lg:text-2xl font-black text-white lg:text-navy tracking-tighter lg:tracking-tighter">Fishgoo</span>
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex gap-6 items-center">
+        <a class="text-gray-600 font-medium hover:text-navy transition-colors" href="#">Services</a>
+        <a class="text-gray-600 font-medium hover:text-navy transition-colors" href="#">Shipping</a>
+        <a class="text-gray-600 font-medium hover:text-navy transition-colors" href="#">Insights</a>
+        <a class="text-navy font-bold border-b-2 border-highlight-orange" href="#">Blog</a>
+      </nav>
+    </div>
+    <!-- Right Actions -->
+    <div class="flex items-center gap-4">
+      <!-- Mobile: image search -->
+      <button class="lg:hidden text-white hover:bg-white/10 transition-colors p-1 rounded-md">
+        <span class="material-symbols-outlined">image_search</span>
+      </button>
+      <!-- Desktop actions -->
+      <div class="hidden lg:flex items-center gap-4 text-gray-600">
+        <span class="material-symbols-outlined cursor-pointer hover:text-navy">notifications</span>
+        <span class="material-symbols-outlined cursor-pointer hover:text-navy">account_circle</span>
+      </div>
+      <button class="hidden lg:block bg-navy text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:brightness-110 transition-all active:scale-95">
+        Get Started
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="lg:pt-20">
+
+<!-- ===== HERO ===== -->
+<section class="hero-gradient text-white relative overflow-hidden px-6 pt-6 pb-8 lg:py-32 lg:px-8">
+  <div class="max-w-screen-2xl mx-auto relative z-10">
+    <!-- Mobile: centered compact -->
+    <div class="flex flex-col items-center text-center lg:items-start lg:text-left lg:max-w-3xl">
+      <h1 class="text-xl lg:text-7xl xl:text-8xl font-black tracking-tighter leading-tight lg:leading-[0.9] mb-4 lg:mb-8">
+        Your Trusted <span class="text-highlight-orange">China</span> Shopping Agent
+      </h1>
+      <p class="hidden lg:block text-xl xl:text-2xl text-blue-200 font-light leading-relaxed mb-12 max-w-2xl">
+        Sourcing and shipping refined for global businesses. Access the world's largest marketplace with institutional trust.
+      </p>
+      <!-- Search Bar -->
+      <div class="w-full max-w-md lg:max-w-xl">
+        <div class="bg-white rounded-lg lg:rounded-xl shadow-2xl flex items-center p-0.5 lg:p-0 focus-within:ring-2 focus-within:ring-highlight-orange/50 transition-shadow">
+          <div class="pl-3 lg:pl-5 pr-2 text-navy">
+            <span class="material-symbols-outlined">search</span>
+          </div>
+          <input class="flex-grow bg-transparent border-none focus:ring-0 text-sm lg:text-lg py-2.5 lg:py-5 font-medium placeholder:text-outline text-on-surface" placeholder="Paste product link or search..." type="text"/>
+          <!-- Mobile: camera button -->
+          <button class="lg:hidden p-2.5 text-highlight-orange hover:bg-surface-container transition-colors rounded-md">
+            <span class="material-symbols-outlined">photo_camera</span>
+          </button>
+          <!-- Desktop: search button -->
+          <button class="hidden lg:block bg-highlight-orange text-white px-8 py-3 m-1.5 rounded-lg font-bold hover:brightness-110 transition-all active:scale-95">Search</button>
+        </div>
+      </div>
+      <!-- Mobile: subtitle -->
+      <p class="lg:hidden mt-4 text-blue-200 text-[10px] font-bold tracking-widest uppercase">Direct access to Taobao, Tmall, and 1688</p>
+      <!-- Desktop: trust badges -->
+      <div class="hidden lg:flex flex-wrap gap-6 items-center mt-10">
+        <div class="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full">
+          <span class="material-symbols-outlined text-highlight-orange" style="font-variation-settings: 'FILL' 1;">verified</span>
+          <span class="text-sm font-semibold tracking-wide uppercase">Free QC</span>
+        </div>
+        <div class="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full">
+          <span class="material-symbols-outlined text-highlight-orange" style="font-variation-settings: 'FILL' 1;">public</span>
+          <span class="text-sm font-semibold tracking-wide uppercase">200+ Countries</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Background image -->
+  <div class="absolute inset-0 lg:left-1/2 opacity-15 lg:opacity-10 pointer-events-none">
+    <img alt="" class="w-full h-full object-cover" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGwD8uGQDa36mZ_dl6z8cflGdik7bcIXeO3J6TdhafSeAHC2sWUcyfOpSqjR4DaFb-y_tbgV2vTl4xTfPcLB-AbESQeTMnNXmLwCcqcbwSMwigKTAFb7nAESWqRo4VnEKSK4-3yWejbM24Y3Z5jzBnyDKfX_2aFhlHLmdTRIgaQ8gwFcCLValtU2h--Z7HeLJ0sgy35DeWTShijUmoCB0E7y9cFNdk-ziU8ymVZ11fL0PDA8ag3NH45oWJrWYfHsIKVOrpB45w6JY"/>
+  </div>
+</section>
+
+<!-- ===== TRUST BAR ===== -->
+<!-- Mobile: 2x2 compact grid -->
+<!-- Desktop: floating card with 4-col -->
+<section class="bg-surface-container-low py-6 px-4 lg:py-0 lg:px-0 lg:bg-transparent">
+  <!-- Desktop floating card -->
+  <div class="hidden lg:block bg-white py-12 shadow-xl max-w-7xl mx-auto rounded-xl relative z-20 -mt-10">
+    <div class="grid grid-cols-4 divide-x divide-gray-200 text-center">
+      <div class="px-4">
+        <p class="text-4xl font-black text-navy leading-none">7+</p>
+        <p class="text-xs font-bold text-outline uppercase tracking-widest mt-2">Years Service</p>
+      </div>
+      <div class="px-4">
+        <p class="text-4xl font-black text-navy leading-none">50,000+</p>
+        <p class="text-xs font-bold text-outline uppercase tracking-widest mt-2">Buyers</p>
+      </div>
+      <div class="px-4">
+        <p class="text-4xl font-black text-navy leading-none">200+</p>
+        <p class="text-xs font-bold text-outline uppercase tracking-widest mt-2">Countries</p>
+      </div>
+      <div class="px-4">
+        <p class="text-4xl font-black text-navy leading-none">1M+</p>
+        <p class="text-xs font-bold text-outline uppercase tracking-widest mt-2">Parcels</p>
+      </div>
+    </div>
+  </div>
+  <!-- Mobile compact grid -->
+  <div class="lg:hidden grid grid-cols-2 gap-3">
+    <div class="bg-white p-4 rounded-lg text-center shadow-sm border border-black/5">
+      <div class="text-xl font-black text-navy mb-0.5">7+</div>
+      <div class="text-[9px] font-bold text-on-surface-variant uppercase tracking-widest">Years Experience</div>
+    </div>
+    <div class="bg-white p-4 rounded-lg text-center shadow-sm border border-black/5">
+      <div class="text-xl font-black text-navy mb-0.5">50k+</div>
+      <div class="text-[9px] font-bold text-on-surface-variant uppercase tracking-widest">Happy Buyers</div>
+    </div>
+    <div class="bg-white p-4 rounded-lg text-center shadow-sm border border-black/5 border-t-2 border-t-highlight-orange">
+      <div class="text-xl font-black text-navy mb-0.5">99%</div>
+      <div class="text-[9px] font-bold text-on-surface-variant uppercase tracking-widest">Safe Delivery</div>
+    </div>
+    <div class="bg-white p-4 rounded-lg text-center shadow-sm border border-black/5">
+      <div class="text-xl font-black text-navy mb-0.5">24/7</div>
+      <div class="text-[9px] font-bold text-on-surface-variant uppercase tracking-widest">Live Support</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS (Desktop) / FEATURES (Mobile) ===== -->
+<!-- Mobile: compact feature cards -->
+<!-- Desktop: 3-step process -->
+<section class="py-8 lg:py-32 px-6 lg:px-8 max-w-screen-2xl mx-auto">
+  <!-- Mobile: Shipping Partners + Feature Cards -->
+  <div class="lg:hidden">
+    <h3 class="text-[10px] font-black text-navy uppercase tracking-[0.2em] mb-6 text-center">Global Shipping Partners</h3>
+    <div class="flex justify-center items-center gap-8 mb-8">
+      <img alt="DHL" class="h-4" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4Ww1JqA1lNyooSPupClXslULYxOZ_nwodeiIkPG9DYFki6NkmZEUzMTfr_XVcolib6dkCGWRQBHavyS44q9gBrJfG24KXhwmIICdwMLlKX05ioQ41lzIb1-pxJlqMXmh9TrIElKkK_tHfaZKOuXUKE85yjHEODhd2a80q0NIHaQNJ3mHOQCCxyRuZK9AysDcfymFNC4FWE-VLt74kL7WWh1ONnCEXqMRiuVY2HmfPdI7uxEO8BvwisRUw0kAIfChe73UkWzAmWHo"/>
+      <img alt="FedEx" class="h-4" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbyYvOEeFF294ycjsKCNFS1ojwvgiZ4-zCMxR-BBKnc064JTmzDh9un5Uu_Z19DvUeA0zJq-9ZL_GWAPguXXFpq_HG8k-ZneqnaEh7b5HBI6PaW9v0BIrIiIU23dDbp0Cr9cY83h02FAn7RvHCsZcU2yZWcjTRzSMpD6itSn74UdGP6XIkIFRG32-XGJFnyeWWT2-kVi_hpwi71OHPTdWmrlE6YPtt_hjQsdfiUCizl-OSiIqVMag2aRZbnAycGbo3yS1vRVSQ73g"/>
+      <img alt="UPS" class="h-5" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ8DCt9QMYtAcha1Nl85wOZ57eMcI58Ol-E5QRE8PqsX_d7EeWaOh3CS4j32IbpGZVf8WObY8iLp66u6yOegiA33ab2nlP97vAg7YASBH1G0OQtydvCjlTWqJloT8Zj-J70KEBa-ckvrHreCVbXmuR6fESn5NKymmK3Sey7AwtmP9-jfbYRsU3RidPrFOTSrFDtOo0Ldzob3FYWIEVNVitH1QTeKCJ85Tn_jEeFFXEZ9lLkxfEIOYzD4XDdI2Di-uYV5pbSW0c1DE"/>
+    </div>
+    <div class="space-y-3">
+      <div class="bg-surface-container-low p-4 rounded-lg flex items-start gap-4">
+        <div class="bg-navy text-white p-2.5 rounded-lg shrink-0">
+          <span class="material-symbols-outlined text-lg">verified_user</span>
+        </div>
+        <div>
+          <h4 class="font-bold text-navy text-sm">Quality Assurance</h4>
+          <p class="text-on-surface-variant text-xs mt-0.5 leading-relaxed">HD photos and manual inspection for every item.</p>
+        </div>
+      </div>
+      <div class="bg-surface-container-low p-4 rounded-lg flex items-start gap-4">
+        <div class="bg-highlight-orange text-white p-2.5 rounded-lg shrink-0">
+          <span class="material-symbols-outlined text-lg">inventory_2</span>
+        </div>
+        <div>
+          <h4 class="font-bold text-navy text-sm">Free Consolidation</h4>
+          <p class="text-on-surface-variant text-xs mt-0.5 leading-relaxed">90 days storage. Save up to 70% on shipping.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Desktop: 3-step process -->
+  <div class="hidden lg:block">
+    <div class="text-center mb-20">
+      <span class="text-highlight-orange font-bold tracking-[0.2em] uppercase text-sm block mb-4">The Workflow</span>
+      <h2 class="text-5xl font-black text-navy tracking-tighter">Sourcing made simple</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-12">
+      <div class="group">
+        <div class="w-20 h-20 bg-blue-50 flex items-center justify-center rounded-xl mb-8 group-hover:bg-highlight-orange/20 transition-colors duration-500">
+          <span class="material-symbols-outlined text-navy text-3xl">shopping_cart</span>
+        </div>
+        <h3 class="text-2xl font-extrabold text-navy mb-4">1. Find &amp; Order</h3>
+        <p class="text-on-surface-variant leading-relaxed">Simply paste links from Taobao, Tmall, or 1688. Our expert agents handle the procurement and local communication for you.</p>
+      </div>
+      <div class="group">
+        <div class="w-20 h-20 bg-blue-50 flex items-center justify-center rounded-xl mb-8 group-hover:bg-highlight-orange/20 transition-colors duration-500">
+          <span class="material-symbols-outlined text-navy text-3xl">fact_check</span>
+        </div>
+        <h3 class="text-2xl font-extrabold text-navy mb-4">2. QC &amp; Store</h3>
+        <p class="text-on-surface-variant leading-relaxed">Once items arrive at our warehouse, we provide high-def photos and quality inspection. Enjoy up to 90 days of free storage.</p>
+      </div>
+      <div class="group">
+        <div class="w-20 h-20 bg-blue-50 flex items-center justify-center rounded-xl mb-8 group-hover:bg-highlight-orange/20 transition-colors duration-500">
+          <span class="material-symbols-outlined text-navy text-3xl">local_shipping</span>
+        </div>
+        <h3 class="text-2xl font-extrabold text-navy mb-4">3. Ship to You</h3>
+        <p class="text-on-surface-variant leading-relaxed">Consolidate multiple orders into one package to save up to 80% on international shipping. Door-to-door delivery globally.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== POPULAR CATEGORIES (Desktop only) ===== -->
+<section class="hidden lg:block bg-surface-container-low py-32">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="flex justify-between items-end mb-16">
+      <div>
+        <span class="text-highlight-orange font-bold tracking-[0.2em] uppercase text-sm block mb-4">Trending Now</span>
+        <h2 class="text-5xl font-black text-navy tracking-tighter">Popular Sourcing Categories</h2>
+      </div>
+      <button class="text-navy font-bold flex items-center gap-2 hover:gap-4 transition-all active:scale-95">View All <span class="material-symbols-outlined">arrow_forward</span></button>
+    </div>
+    <div class="grid grid-cols-4 gap-8">
+      <div class="group cursor-pointer">
+        <div class="aspect-square rounded-full overflow-hidden mb-6 shadow-lg border-4 border-white transition-transform group-hover:scale-105 duration-500">
+          <img alt="Fashion" class="w-full h-full object-cover" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB499cHWYtrPxjj4zIfTtqhIJEn97OkGMqY9uC-TpWxTZq5yzq4yTB0oO6zj_kB5Smd_m98EiEskyPgYTDQzF1AdByn6lN34iMA3ZNBZ-NjMtWYbS1h9QtXKDTRjZDEdcoFmcrM9hty-8XZkN_vme-F2-I9FTXk5TqwAPT-sFDYctd3T7wpjtf3FNGqLtIRM387rpSVQzRY1_YIQRSK41QJVwuZCqjAoV6zVYXQNwwdyVh11YqZ45iyZBa4g49jySXFpeGrO-Y2Y64"/>
+        </div>
+        <p class="text-center text-xl font-bold text-navy">Fashion</p>
+      </div>
+      <div class="group cursor-pointer">
+        <div class="aspect-square rounded-full overflow-hidden mb-6 shadow-lg border-4 border-white transition-transform group-hover:scale-105 duration-500">
+          <img alt="Tech" class="w-full h-full object-cover" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfZBzYkvHaxOtx0SPYpdnXzLODF4BfmId_P_RKErLVWxb5kCN9eu1dbZVL3z-4Die30X_BS75Cs9tTD2Ypo7KFSgNtBBkzeTcgae26rGnjzvPHdnszE4U9eDk90GtgoPEGifi_6PfPFzyACyc-aRn9PSODwVmZDF46_QGS3UUZOwv-jGoMgqD3MljW_-Sx0bLFf_kHv4C10gdoLKyQPh0cItPpwlyfqN9nHcJbXNz2xPRNfiEZUZvKgASHvb3DvRGy2GOBTjEP5e8"/>
+        </div>
+        <p class="text-center text-xl font-bold text-navy">Tech</p>
+      </div>
+      <div class="group cursor-pointer">
+        <div class="aspect-square rounded-full overflow-hidden mb-6 shadow-lg border-4 border-white transition-transform group-hover:scale-105 duration-500">
+          <img alt="Home" class="w-full h-full object-cover" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr9uQ02xTZbrFasXuqNWbsSh3Uqbdv6k6CCZjI1DyUSB07EAwyFuCZu4JPlT6PJHfp1DrjkPhN0sw4tgI5Aq6Ux-dQJqUw61HQzVzTGyTfFBz0FSaYX2Ovh2AsfJ-J9pflsVlQ7IUXplCC9UHfpaC0WI7hKc-zhZXzOXC2-Slio6Tw5vB7Hgk4r1wVBD-_MLm7-6EPu-jN3j_ocYwrqyCdyX52ULf3xEprQFQlpAFwY-u7yZ5iKhCSWj_JT1n9bTn3Y64yTpduApk"/>
+        </div>
+        <p class="text-center text-xl font-bold text-navy">Home</p>
+      </div>
+      <div class="group cursor-pointer">
+        <div class="aspect-square rounded-full overflow-hidden mb-6 shadow-lg border-4 border-white transition-transform group-hover:scale-105 duration-500">
+          <img alt="Beauty" class="w-full h-full object-cover" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-BXzaxNtDbNO3Z8WCROAaelzuI13fswcYIzLkaewI0A4pDpzH3Ee5n_a8pNm1PKKqnQupXW22aiqUJxsCUdXU0XMwXXX2GPAG6d8ZhM_3_flal4SOLw6q2x1Fj_SQGkEmH3_Mnl2gLExeNKM6Kpzf348yU5tp7i7asG5_K0LZ50hBEa4eQy3tXs8jkxmdQm_hgfdia2CaXi3KMgCK-Aj7cnIq8m-QhsSCn4Zivk1DZZif5y8S5lGbf7MJWys2STPl0rzP9t-NiT8"/>
+        </div>
+        <p class="text-center text-xl font-bold text-navy">Beauty</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ELITE FEATURES (Desktop only) ===== -->
+<section class="hidden lg:block py-32 px-8 max-w-screen-2xl mx-auto">
+  <div class="grid md:grid-cols-3 gap-8">
+    <div class="md:col-span-1 flex flex-col justify-center">
+      <h2 class="text-5xl font-black text-navy tracking-tighter mb-6 leading-tight">Elite features for global merchants</h2>
+      <p class="text-on-surface-variant text-lg leading-relaxed mb-8">We provide more than just a shipping address. We offer a full-service logistics infrastructure designed to scale your business.</p>
+      <button class="bg-navy text-white px-8 py-4 rounded-lg font-bold w-fit hover:bg-navy-dark transition-colors active:scale-95">Learn More</button>
+    </div>
+    <div class="md:col-span-2 grid grid-cols-2 gap-6">
+      <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-xl transition-shadow">
+        <span class="material-symbols-outlined text-highlight-orange mb-4 text-3xl">payments</span>
+        <h4 class="text-xl font-bold mb-2">Price Match</h4>
+        <p class="text-on-surface-variant text-sm">We guarantee the best procurement rates across all major Chinese marketplaces.</p>
+      </div>
+      <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-xl transition-shadow">
+        <span class="material-symbols-outlined text-highlight-orange mb-4 text-3xl">photo_camera</span>
+        <h4 class="text-xl font-bold mb-2">QC Photos</h4>
+        <p class="text-on-surface-variant text-sm">High-resolution inspection photos sent to your dashboard within 24h of arrival.</p>
+      </div>
+      <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-xl transition-shadow">
+        <span class="material-symbols-outlined text-highlight-orange mb-4 text-3xl">verified_user</span>
+        <h4 class="text-xl font-bold mb-2">Secure Payment</h4>
+        <p class="text-on-surface-variant text-sm">Multiple currency support with bank-grade encryption for all transactions.</p>
+      </div>
+      <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-xl transition-shadow">
+        <span class="material-symbols-outlined text-highlight-orange mb-4 text-3xl">inventory_2</span>
+        <h4 class="text-xl font-bold mb-2">Consolidation</h4>
+        <p class="text-on-surface-variant text-sm">Professional repacking to reduce volumetric weight and shipping costs.</p>
+      </div>
+      <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-xl transition-shadow">
+        <span class="material-symbols-outlined text-highlight-orange mb-4 text-3xl">calculate</span>
+        <h4 class="text-xl font-bold mb-2">Shipping Calculator</h4>
+        <p class="text-on-surface-variant text-sm">Instant quotes for air, sea, and land routes based on real-time carrier data.</p>
+      </div>
+      <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-xl transition-shadow">
+        <span class="material-symbols-outlined text-highlight-orange mb-4 text-3xl">support_agent</span>
+        <h4 class="text-xl font-bold mb-2">24/7 Support</h4>
+        <p class="text-on-surface-variant text-sm">Dedicated bilingual account managers available around the clock.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BLOG / INSIGHTS ===== -->
+<!-- Mobile: horizontal snap scroll cards -->
+<!-- Desktop: 3-col editorial grid -->
+<section class="bg-surface-container lg:bg-surface py-8 lg:py-32 lg:border-t lg:border-gray-100">
+  <div class="max-w-screen-2xl mx-auto">
+    <!-- Header -->
+    <div class="flex justify-between items-center lg:items-end mb-4 lg:mb-16 px-6 lg:px-8">
+      <div>
+        <span class="hidden lg:block text-highlight-orange font-bold tracking-[0.2em] uppercase text-sm mb-4">Fishgoo Editorial</span>
+        <h2 class="text-lg lg:text-5xl font-extrabold lg:font-black text-navy tracking-tight lg:tracking-tighter">Market Insights</h2>
+      </div>
+      <a class="text-highlight-orange text-[11px] lg:text-base font-bold uppercase tracking-wider flex items-center gap-1 group lg:bg-navy lg:text-white lg:px-8 lg:py-3 lg:rounded-lg lg:tracking-normal lg:normal-case" href="#">
+        <span class="lg:hidden">View All</span>
+        <span class="hidden lg:inline">Visit Newsroom</span>
+        <span class="material-symbols-outlined text-sm lg:hidden group-hover:translate-x-1 transition-transform">arrow_forward</span>
+      </a>
+    </div>
+    <!-- Mobile: snap scroll -->
+    <div class="lg:hidden flex overflow-x-auto gap-4 pb-4 px-6 snap-x snap-mandatory no-scrollbar scroll-smooth">
+      <div class="flex-shrink-0 w-[260px] bg-white rounded-xl overflow-hidden shadow-sm border border-black/5 snap-start">
+        <div class="h-32 relative">
+          <img alt="Chinese Electronics Market" class="w-full h-full object-cover" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABi01Dx7x7e1lo-W0tU8NmMLZwBw7199LFNQf_8C2wFavrB27UU3SJeLCy-mbYAvB2NW_dV5VMT4S87E7PWWbob4Zcqw1TQpzS5GZc222yyXhG2OPlYioNWTRaFacD3kTgrL3Adsd9dgXOLX0saNCqNRa4flXM5QO0N_VtZcLTtrNoM9_Ds-pMn7nAcWFG6YhSdOvnbTyodQT52hD_JjhxLyA2-NOHUf-1EDQQcKkokwqRXvM8zlkqmo4LfhxiLO95mQN3_AVGCaY"/>
+          <div class="absolute top-2 left-2 bg-navy/90 backdrop-blur-sm text-white text-[8px] font-bold px-1.5 py-0.5 rounded uppercase tracking-widest">Guide</div>
+        </div>
+        <div class="p-3">
+          <h4 class="text-sm font-bold text-navy mb-1 line-clamp-1">Mastering 1688 Sourcing</h4>
+          <p class="text-on-surface-variant text-[11px] line-clamp-1">Learn hidden tricks to secure factory pricing.</p>
+        </div>
+      </div>
+      <div class="flex-shrink-0 w-[260px] bg-white rounded-xl overflow-hidden shadow-sm border border-black/5 snap-start">
+        <div class="h-32 relative">
+          <img alt="Shipping Logistics" class="w-full h-full object-cover" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFVm6WvQazpOeZOFZGzWGCAgWkqZqn388NmXwe2tDG1iSg9KalqM6J_Khm57swVo_bWXmD6nPH5Pe9JVKDJm0PRf_KRgalO3ngIu2e6IYy4HPyCYzCJrPk08gWwvnBrrm-tETeBHVeOTqWiNoOlsiNXAsNCmmJaE9zHl9PH0n0macAsCiLVBCM4fZY06oQlq5h_B2v4x9oYmndxR6RNrmEZVVmhHI_7KBJEkblCwjy7e82A64Ejxnmzewi8EQc9L3uO4TfFOD6JXA"/>
+          <div class="absolute top-2 left-2 bg-highlight-orange/90 backdrop-blur-sm text-white text-[8px] font-bold px-1.5 py-0.5 rounded uppercase tracking-widest">Logistics</div>
+        </div>
+        <div class="p-3">
+          <h4 class="text-sm font-bold text-navy mb-1 line-clamp-1">2024 Shipping Trends</h4>
+          <p class="text-on-surface-variant text-[11px] line-clamp-1">How to optimize your global supply chain costs.</p>
+        </div>
+      </div>
+      <div class="flex-shrink-0 w-[260px] bg-white rounded-xl overflow-hidden shadow-sm border border-black/5 snap-start">
+        <div class="h-32 relative">
+          <img alt="Quality Control" class="w-full h-full object-cover" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAs_v2rGWfPFT2YRAWsriulaYB7UxRhPz__a5rY8DI2im_Yferh5OWG2xPekq2C2loHaWiR-155RjEEKLbhZ6IgM01D4e5pfgDMALyUS_HgWZaE-YQJb59cNqY02ifR9Lldn2ti2nKxDZSydpzn7Izz9cB2oVf82EYbL-CmuLHpzIvn3kXoaJSyb98nod13_xuuCKxqOCvkLlFhDnRlTGd0--gVKvZcc8MWJrcM-21ai23ZWzFxSE380e7o1YjJ8nnX1Q9KW7LwUGU"/>
+          <div class="absolute top-2 left-2 bg-navy/90 backdrop-blur-sm text-white text-[8px] font-bold px-1.5 py-0.5 rounded uppercase tracking-widest">Quality</div>
+        </div>
+        <div class="p-3">
+          <h4 class="text-sm font-bold text-navy mb-1 line-clamp-1">QC Checklist for Agents</h4>
+          <p class="text-on-surface-variant text-[11px] line-clamp-1">What we look for during item inspections.</p>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile scroll indicators -->
+    <div class="lg:hidden flex justify-center gap-1.5 mt-2">
+      <div class="h-1 w-6 bg-navy rounded-full"></div>
+      <div class="h-1 w-2 bg-outline/30 rounded-full"></div>
+      <div class="h-1 w-2 bg-outline/30 rounded-full"></div>
+    </div>
+    <!-- Desktop: 3-col grid -->
+    <div class="hidden lg:grid grid-cols-3 gap-10 px-8">
+      <article class="group">
+        <div class="aspect-[16/10] rounded-xl overflow-hidden mb-8 relative">
+          <img alt="Shipping containers" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFVm6WvQazpOeZOFZGzWGCAgWkqZqn388NmXwe2tDG1iSg9KalqM6J_Khm57swVo_bWXmD6nPH5Pe9JVKDJm0PRf_KRgalO3ngIu2e6IYy4HPyCYzCJrPk08gWwvnBrrm-tETeBHVeOTqWiNoOlsiNXAsNCmmJaE9zHl9PH0n0macAsCiLVBCM4fZY06oQlq5h_B2v4x9oYmndxR6RNrmEZVVmhHI_7KBJEkblCwjy7e82A64Ejxnmzewi8EQc9L3uO4TfFOD6JXA"/>
+          <div class="absolute top-4 left-4">
+            <span class="bg-highlight-orange text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded">Strategy</span>
+          </div>
+        </div>
+        <h3 class="text-2xl font-black text-navy leading-tight mb-4 group-hover:text-highlight-orange transition-colors">Navigating Peak Season: How to Avoid Port Congestion</h3>
+        <p class="text-on-surface-variant mb-6 line-clamp-2">Master the art of holiday shipping with our comprehensive guide to early booking and alternative routes.</p>
+        <a class="inline-flex items-center gap-2 font-bold text-navy group-hover:gap-4 transition-all" href="#">Read More <span class="material-symbols-outlined text-sm">east</span></a>
+      </article>
+      <article class="group">
+        <div class="aspect-[16/10] rounded-xl overflow-hidden mb-8 relative">
+          <img alt="Warehouse packaging" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOykFjTMMWLdK1M8soZR1vANXA9GfWWwbHWX_UiSH-icdLn1Jmsh2lOv8hKIvDZmwW2BJoZB_-lgHuiIUQyaMzUAtjhAItfWmx6tkGE6YuN8tUy5b-8pct850KZPxe3Gu_4kORuNnfOm3R79HKYvk4KVB48IpPgkaVT3Nhd61J7O0UsflWTIc3Ie62fKdoGX0DdRm2QajeYf2PFI5Aatli734Rinxe2-g9x6sFT5Mx8IKDb3H33Q7jjSDCmF7CLKnaPXI2Qyvhi2o"/>
+          <div class="absolute top-4 left-4">
+            <span class="bg-highlight-orange text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded">Efficiency</span>
+          </div>
+        </div>
+        <h3 class="text-2xl font-black text-navy leading-tight mb-4 group-hover:text-highlight-orange transition-colors">The Art of Consolidation: Saving 40% on Shipping</h3>
+        <p class="text-on-surface-variant mb-6 line-clamp-2">Learn how our expert repackaging service can drastically reduce the volume of your shipments.</p>
+        <a class="inline-flex items-center gap-2 font-bold text-navy group-hover:gap-4 transition-all" href="#">Read More <span class="material-symbols-outlined text-sm">east</span></a>
+      </article>
+      <article class="group">
+        <div class="aspect-[16/10] rounded-xl overflow-hidden mb-8 relative">
+          <img alt="Business analytics" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAs_v2rGWfPFT2YRAWsriulaYB7UxRhPz__a5rY8DI2im_Yferh5OWG2xPekq2C2loHaWiR-155RjEEKLbhZ6IgM01D4e5pfgDMALyUS_HgWZaE-YQJb59cNqY02ifR9Lldn2ti2nKxDZSydpzn7Izz9cB2oVf82EYbL-CmuLHpzIvn3kXoaJSyb98nod13_xuuCKxqOCvkLlFhDnRlTGd0--gVKvZcc8MWJrcM-21ai23ZWzFxSE380e7o1YjJ8nnX1Q9KW7LwUGU"/>
+          <div class="absolute top-4 left-4">
+            <span class="bg-highlight-orange text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded">Trends</span>
+          </div>
+        </div>
+        <h3 class="text-2xl font-black text-navy leading-tight mb-4 group-hover:text-highlight-orange transition-colors">Direct-to-Consumer Trends from China in 2024</h3>
+        <p class="text-on-surface-variant mb-6 line-clamp-2">A deep dive into the emerging categories and brands dominating the global e-commerce landscape.</p>
+        <a class="inline-flex items-center gap-2 font-bold text-navy group-hover:gap-4 transition-all" href="#">Read More <span class="material-symbols-outlined text-sm">east</span></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<!-- Mobile: vertical cards with flags -->
+<!-- Desktop: 3-col cards with border accent -->
+<section class="py-10 lg:py-32 px-6 lg:px-8 bg-surface lg:bg-surface-container-low">
+  <div class="max-w-screen-2xl mx-auto">
+    <div class="text-center mb-8 lg:mb-20">
+      <span class="text-[10px] lg:text-sm font-black lg:font-bold text-navy lg:text-highlight-orange uppercase tracking-[0.2em] block lg:mb-4">
+        Global Success Stories
+      </span>
+      <h2 class="hidden lg:block text-5xl font-black text-navy tracking-tighter">Trusted by 50,000+ Curators</h2>
+    </div>
+    <!-- Mobile testimonials -->
+    <div class="lg:hidden space-y-6">
+      <div class="flex flex-col gap-3">
+        <div class="flex items-center gap-3">
+          <img alt="Mark S." class="w-10 h-10 rounded-full object-cover ring-2 ring-navy/5" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRBmAHYI0E26belaxnNKwRmro91bDVLvCS93JnhQy98iwP47Db2slyurCiab9MbZu6mOEB7oHBGW2F5r-VB3yhIQvMAJGTA1ecfq3caq_sZPfg2708Lkx42PjottuYy71Up2njR2cEB6uhxUc1rWOAqu0zCdNJnIqrDTkqGLzji-cloiXQ8WIENGF6k2UvKI6h0euAK4PT8pZ8jdJQPDbGIT2UmGDvPhiQwwTsX-sJiYI6EcGYbliFL2bOnTvD0VM8Xdo-9-_DHUs"/>
+          <div>
+            <div class="font-bold text-sm text-navy">Mark S.</div>
+            <div class="flex items-center gap-1 text-[10px] text-outline font-bold uppercase tracking-tight">
+              <span class="material-symbols-outlined text-xs text-blue-700">flag</span> USA
+            </div>
+          </div>
+        </div>
+        <div class="bg-surface-container-low p-4 rounded-lg">
+          <p class="text-on-surface-variant text-xs italic leading-relaxed">"Fishgoo is the only agent I trust. The QC photos are extremely detailed and professional."</p>
+        </div>
+      </div>
+      <div class="flex flex-col gap-3">
+        <div class="flex items-center gap-3">
+          <img alt="Sarah K." class="w-10 h-10 rounded-full object-cover ring-2 ring-navy/5" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2N7uDAaprWG4xGGy9kQDcu94jGd-SBmSjHIEOu13tLzb6PnzAWyIoXqkjBzWY8Vr44mSbYAW-texhpCSxKd3UrKAA71L7_XYGsdc7ZpIs3uDxCgvzO-ysTFY60BKPRlentMmHl0jyUoqVOu9Xt8kkqjDvnI3q9w2Jj-30WYQe7vT0hPSJ5BqM_A6CKrAzxBawsE9VYrLuWCQn4Qh9Anyjv10kB3TzwrrDN5tuGjJfsH0qnTeFGmulTsceoJ4KjFMh-0h4Us0slbk"/>
+          <div>
+            <div class="font-bold text-sm text-navy">Sarah K.</div>
+            <div class="flex items-center gap-1 text-[10px] text-outline font-bold uppercase tracking-tight">
+              <span class="material-symbols-outlined text-xs text-red-600">flag</span> Germany
+            </div>
+          </div>
+        </div>
+        <div class="bg-surface-container-low p-4 rounded-lg">
+          <p class="text-on-surface-variant text-xs italic leading-relaxed">"Exceptional service. My parcel arrived in Berlin in just 8 days with everything perfectly packed."</p>
+        </div>
+      </div>
+      <div class="flex flex-col gap-3">
+        <div class="flex items-center gap-3">
+          <img alt="James L." class="w-10 h-10 rounded-full object-cover ring-2 ring-navy/5" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmXxm2KYRReNP6yEgnvfMsROlajEC87gLqyqGDxqTfEhcyxqx5pFsSPoxrLmRp5w0SnRR0Cfn1N511uWwqUYK2SJ9boC1viMlr75QAAHPYTgAu1d6HQkOULfeGpznLJaOvhKN0fLleCT9Y-rNUmXL8MrdKtyR_PZxUIrE6L703098rvrbDNCalzK72S3wo_tmvBo9RAmBaW3GUbL1tAiAjwX3qpAwOkCgRaImGst23DDPmWk6ilT3P1BdKLsWrSPqmkkPrDdkAThs"/>
+          <div>
+            <div class="font-bold text-sm text-navy">James L.</div>
+            <div class="flex items-center gap-1 text-[10px] text-outline font-bold uppercase tracking-tight">
+              <span class="material-symbols-outlined text-xs text-blue-900">flag</span> UK
+            </div>
+          </div>
+        </div>
+        <div class="bg-surface-container-low p-4 rounded-lg">
+          <p class="text-on-surface-variant text-xs italic leading-relaxed">"The consolidation feature saved me over 200 GBP last month alone. Absolute game changer."</p>
+        </div>
+      </div>
+    </div>
+    <!-- Desktop testimonials -->
+    <div class="hidden lg:grid grid-cols-3 gap-8">
+      <div class="bg-white p-10 rounded-xl shadow-sm border-b-4 border-highlight-orange">
+        <div class="flex gap-1 text-highlight-orange mb-6">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+        </div>
+        <p class="text-lg text-navy italic mb-8">"Fishgoo has transformed how I source inventory for my boutique. The QC photos are lifesavers and the shipping speed is unmatched."</p>
+        <div class="flex items-center gap-4">
+          <img alt="Sarah Jenkins" class="w-12 h-12 rounded-full object-cover" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFWGPSSN8IVgGPXhn0oy7q-E6d_xlxXtx_48obfQZlkgA28OpwHRXnvqdIVboiUpmbdeWMDLD59UMEpvagFL9ukO07VYIXdsY643RRPE4Y4KIO3qj1ETm6vLthozdHq1-A0cpXfFY-KbGFv7V6uPqqGnJhNDerzQmjhc30UDDX8emd6DZQQD-2mfR39vY5yDlE77xnINLMqtQH71svHidRF6RF4wZHvzuppSlXaYrgzcDIOaGmMxd005JgN86pieaFeKt3Ao0g_rw"/>
+          <div>
+            <p class="font-black text-navy">Sarah Jenkins</p>
+            <p class="text-xs text-on-surface-variant uppercase font-bold tracking-widest">E-commerce Founder</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white p-10 rounded-xl shadow-sm border-b-4 border-navy">
+        <div class="flex gap-1 text-highlight-orange mb-6">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+        </div>
+        <p class="text-lg text-navy italic mb-8">"The best agent I've used in 10 years of trading. Their 1688 integration is flawless and the consolidation saved me thousands."</p>
+        <div class="flex items-center gap-4">
+          <img alt="Michael Chen" class="w-12 h-12 rounded-full object-cover" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBu3YXfG6c7fxpYGKjgqdBQ8TRYOKKjdI_1FUqB92NMttFdXBDDbffmGfArGa5ooGdOjCqrKyPAh5Gm0f5J6adJ6Yw-QPCtWrKlSZx5sfwDtvvwe-Hk1h2BPuxhT7RO65Nby97vimXB-mur-MuuDmsAyU3oC-OF6USgkjuaHV1u7FM5kAlheADzEMV_LghRGDJcjvLXoFfpvm-XZuTV3loYQr2ymURDSWNaGJk-qymrGjXvzlcu1t692PNqXAkW-TQRKrRIPybIUrs"/>
+          <div>
+            <p class="font-black text-navy">Michael Chen</p>
+            <p class="text-xs text-on-surface-variant uppercase font-bold tracking-widest">Global Sourcing Lead</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white p-10 rounded-xl shadow-sm border-b-4 border-highlight-orange">
+        <div class="flex gap-1 text-highlight-orange mb-6">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+        </div>
+        <p class="text-lg text-navy italic mb-8">"Extremely reliable service. Their support team helped me navigate a complex tax situation with ease. Highly recommend."</p>
+        <div class="flex items-center gap-4">
+          <img alt="Elena Rodriguez" class="w-12 h-12 rounded-full object-cover" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNm1k4A8Jx9bmgbkrNB7mIuol2CKY-A5X9DJhcDLz3tEEPNHriPZEXRC47mWQmf42Z1rGwTsb8MHoDIolRowWtsRaY78CQe0BAWq5GVr6siJKndusdGz6HdOyM-9dr5lQnlfPfCbheUJbkEQhOODSlGe_OtgjOisudc0-Octm-Zqxoeiv094obki60SVLuOebemb7Ze7cXjgYcKNqt8grvwfV_w_bgTMdYsZKaHQczhnrrI0cypKlMh6y1IUevzc6GGhVKxpHos6Y"/>
+          <div>
+            <p class="font-black text-navy">Elena Rodriguez</p>
+            <p class="text-xs text-on-surface-variant uppercase font-bold tracking-widest">Dropshipping Expert</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="py-20 lg:py-32 bg-navy relative overflow-hidden">
+  <div class="max-w-screen-2xl mx-auto px-6 lg:px-8 relative z-10 text-center">
+    <h2 class="text-4xl lg:text-7xl xl:text-8xl font-black text-white tracking-tighter mb-8 lg:mb-10 leading-tight lg:leading-none">Ready to start <br/> your curation?</h2>
+    <div class="flex flex-col sm:flex-row gap-4 lg:gap-6 justify-center">
+      <button class="bg-highlight-orange text-white px-8 lg:px-12 py-4 lg:py-5 rounded-xl text-lg lg:text-xl font-black hover:brightness-110 transition-all shadow-xl active:scale-95">Get Started Now</button>
+      <button class="bg-white/10 text-white border border-white/20 px-8 lg:px-12 py-4 lg:py-5 rounded-xl text-lg lg:text-xl font-black hover:bg-white/20 transition-all backdrop-blur-md active:scale-95">Contact Sales</button>
+    </div>
+  </div>
+  <div class="absolute inset-0 opacity-10 pointer-events-none">
+    <img alt="" class="w-full h-full object-cover" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3HcYqnPd1d7-UgOPZTEeix2Hdimhj590UJvgL0Ho6-3D3ZVd0UUQvhZO3r7gpO1rjdhWUECt7tE17y_lr32Jf3UaooxTSQMXkmarAgj-2znWuhyZCIKHiz4_AKx5NjhnOnisfXdjCw1O73Ktc-5tMRXtno7ICPK4n3BMxfPgX70FZvgPv0Qp1CfRGtpbcwNedWuUzhEDrTCnO6UgopHgPfqoiT2HrhStWfaUp0TP7I6drcwneUOOClUt2Z_5AvI0MxjkURZvJYko"/>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<!-- Mobile: compact centered -->
+<!-- Desktop: full nav row -->
+<footer class="bg-navy-dark w-full pt-10 lg:pt-16 pb-20 lg:pb-8 border-t border-white/10">
+  <div class="flex flex-col items-center gap-6 lg:gap-12 px-6 lg:px-8 w-full max-w-screen-2xl mx-auto">
+    <div class="w-full flex flex-col lg:flex-row justify-between items-center gap-6 lg:gap-8">
+      <span class="text-xl font-bold text-white">Fishgoo</span>
+      <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 lg:gap-8">
+        <a class="text-gray-400 text-xs lg:text-sm uppercase tracking-widest hover:text-highlight-orange transition-colors" href="#">Terms</a>
+        <a class="text-gray-400 text-xs lg:text-sm uppercase tracking-widest hover:text-highlight-orange transition-colors" href="#">Privacy</a>
+        <a class="text-gray-400 text-xs lg:text-sm uppercase tracking-widest hover:text-highlight-orange transition-colors" href="#">Shipping Guide</a>
+        <a class="text-gray-400 text-xs lg:text-sm uppercase tracking-widest hover:text-highlight-orange transition-colors" href="#">Contact</a>
+        <a class="hidden lg:inline text-gray-400 text-sm uppercase tracking-widest hover:text-highlight-orange transition-colors" href="#">Network</a>
+        <a class="hidden lg:inline text-gray-400 text-sm uppercase tracking-widest hover:text-highlight-orange transition-colors" href="#">Press</a>
+      </nav>
+    </div>
+    <div class="text-gray-500 text-xs lg:text-sm uppercase tracking-[0.2em] border-t border-white/5 pt-6 lg:pt-8 w-full text-center">
+      &copy; 2026 Fishgoo. Your Trusted China Shopping Agent.
+    </div>
+  </div>
+</footer>
+
+<!-- ===== MOBILE ONLY: FAB + Bottom Nav ===== -->
+<!-- Floating Action Button -->
+<button class="lg:hidden fixed bottom-24 right-6 w-12 h-12 bg-highlight-orange text-white rounded-full shadow-2xl flex items-center justify-center active:scale-90 transition-transform z-40">
+  <span class="material-symbols-outlined text-2xl">support_agent</span>
+</button>
+<!-- Bottom Navigation Bar -->
+<nav class="lg:hidden fixed bottom-0 left-0 right-0 bg-white h-16 flex justify-around items-center px-2 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] z-[100]">
+  <a class="flex flex-col items-center gap-0.5 text-on-surface-variant" href="#">
+    <span class="material-symbols-outlined text-xl">shopping_bag</span>
+    <span class="text-[9px] font-bold uppercase tracking-tighter">Orders</span>
+  </a>
+  <a class="flex flex-col items-center gap-0.5 text-on-surface-variant" href="#">
+    <span class="material-symbols-outlined text-xl">inventory_2</span>
+    <span class="text-[9px] font-bold uppercase tracking-tighter">Warehouse</span>
+  </a>
+  <div class="relative -top-5">
+    <button class="w-12 h-12 bg-navy text-white rounded-full shadow-lg flex items-center justify-center active:scale-95 duration-200">
+      <span class="material-symbols-outlined text-2xl">add</span>
+    </button>
+  </div>
+  <a class="flex flex-col items-center gap-0.5 text-on-surface-variant" href="#">
+    <span class="material-symbols-outlined text-xl">local_shipping</span>
+    <span class="text-[9px] font-bold uppercase tracking-tighter">Parcel</span>
+  </a>
+  <a class="flex flex-col items-center gap-0.5 text-on-surface-variant" href="#">
+    <span class="material-symbols-outlined text-xl">account_circle</span>
+    <span class="text-[9px] font-bold uppercase tracking-tighter">Profile</span>
+  </a>
+</nav>
+
+</body>
+</html>
